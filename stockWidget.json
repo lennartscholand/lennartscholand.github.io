@@ -12,21 +12,21 @@
 		{
 			"kind": "main",
 			"tag": "com-conet-widget-stockwidget",
-			"url": "http://localhost:8888/stockWidget.js",
+			"url": "https://lennartscholand.github.io/stockWidget.js",
 			"integrity": "",
 			"ignoreIntegrity": true
 		},
 		{
 			"kind": "styling",
 			"tag": "com-conet-widget-stockwidget-styling",
-			"url": "http://localhost:8888/stockWidget_styling.js",
+			"url": "https://lennartscholand.github.io/stockWidget_styling.js",
 			"integrity": "",
 			"ignoreIntegrity": true
 		},
 		{
 			"kind": "builder",
 			"tag": "com-conet-widget-stockwidget-builder",
-			"url": "http://localhost:8888/stockWidget_builder.js",
+			"url": "https://lennartscholand.github.io/stockWidget.js_builder.js",
 			"integrity": "",
 			"ignoreIntegrity": true
 		}
