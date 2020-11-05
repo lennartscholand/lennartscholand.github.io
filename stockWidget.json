@@ -1,0 +1,122 @@
+{
+	"id": "com.conet.widget.stockwidget",
+	"version": "1.0.0",
+	"name": "Stock Widget",
+	"description": "A stock widget based on Tradingview",
+	"newInstancePrefix": "StockWidget",
+	"icon": "",
+	"vendor": "Conet",
+	"eula": "",
+	"license": "",
+	"webcomponents": [
+		{
+			"kind": "main",
+			"tag": "com-conet-widget-stockwidget",
+			"url": "http://localhost:8888/stockWidget.js",
+			"integrity": "",
+			"ignoreIntegrity": true
+		},
+		{
+			"kind": "styling",
+			"tag": "com-conet-widget-stockwidget-styling",
+			"url": "http://localhost:8888/stockWidget_styling.js",
+			"integrity": "",
+			"ignoreIntegrity": true
+		},
+		{
+			"kind": "builder",
+			"tag": "com-conet-widget-stockwidget-builder",
+			"url": "http://localhost:8888/stockWidget_builder.js",
+			"integrity": "",
+			"ignoreIntegrity": true
+		}
+	],
+	"properties": {
+		"ticker": {
+			"type": "string",
+			"description": "Ticker Value",
+			"default": ""
+		},
+		"market": {
+			"type": "string",
+			"description": "Market Value",
+			"default": ""
+		},
+		"opacity": {
+			"type": "number",
+			"description": "Opacity",
+			"default": 1
+		},
+		"width": {
+			"type": "integer",
+			"default": 1000
+		},
+		"height": {
+			"type": "integer",
+			"default": 600
+		}
+	},
+	"methods": {
+		"setTicker": {
+			"description": "Sets the ticker.",
+			"parameters": [
+				{
+					"name": "newTicker",
+					"type": "string",
+					"description": "The new ticker value"
+				}
+			],
+			"body": "this.ticker = newTicker;"
+		},
+		"setMarket": {
+			"description": "Sets the market.",
+			"parameters": [
+				{
+					"name": "newMarket",
+					"type": "string",
+					"description": "The new market value"
+				}
+			],
+			"body": "this.market = newMarket;"
+		},
+		"setWidth": {
+			"description": "Sets the width.",
+			"parameters": [
+				{
+					"name": "newWidth",
+					"type": "integer",
+					"description": "The width market value"
+				}
+			],
+			"body": "this.width = newWidth;"
+		},
+		"setHeight": {
+			"description": "Sets the height.",
+			"parameters": [
+				{
+					"name": "newHeight",
+					"type": "integer",
+					"description": "The width height value"
+				}
+			],
+			"body": "this.height = newHeight;"
+		},
+		"getTicker": {
+			"returnType": "string",
+			"description": "Returns the ticker value.",
+			"body": "return this.ticker;"
+		},
+		"getMarket": {
+			"returnType": "string",
+			"description": "Returns the market value.",
+			"body": "return this.market;"
+		}
+	},
+	"events": {
+		"onClick": {
+			"description": "Called when the user clicks the Colored Box."
+		}
+	}
+}
+
+ 
