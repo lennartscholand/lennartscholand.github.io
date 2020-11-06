@@ -12,21 +12,21 @@
 		{
 			"kind": "main",
 			"tag": "com-conet-widget-stockwidget",
-			"url": "https://lennartscholand.github.io/stockWidget.js",
+			"url": "http://localhost:8888/stockWidget.js",
 			"integrity": "",
 			"ignoreIntegrity": true
 		},
 		{
 			"kind": "styling",
 			"tag": "com-conet-widget-stockwidget-styling",
-			"url": "https://lennartscholand.github.io/stockWidget_styling.js",
+			"url": "http://localhost:8888/stockWidget_styling.js",
 			"integrity": "",
 			"ignoreIntegrity": true
 		},
 		{
 			"kind": "builder",
 			"tag": "com-conet-widget-stockwidget-builder",
-			"url": "https://lennartscholand.github.io/stockWidget.js_builder.js",
+			"url": "http://localhost:8888/stockWidget_builder.js",
 			"integrity": "",
 			"ignoreIntegrity": true
 		}
@@ -41,6 +41,11 @@
 			"type": "string",
 			"description": "Market Value",
 			"default": ""
+		},
+		"widgetType": {
+			"type": "string",
+			"description": "Type of the widget",
+			"default": "chart"
 		},
 		"opacity": {
 			"type": "number",
@@ -79,13 +84,24 @@
 			],
 			"body": "this.market = newMarket;"
 		},
+		"setWidgetType": {
+			"description": "Sets the widget type.",
+			"parameters": [
+				{
+					"name": "newWidgetType",
+					"type": "string",
+					"description": "The widget type value"
+				}
+			],
+			"body": "this.widgetType = newWidgetType;"
+		},
 		"setWidth": {
 			"description": "Sets the width.",
 			"parameters": [
 				{
 					"name": "newWidth",
 					"type": "integer",
-					"description": "The width market value"
+					"description": "The width value"
 				}
 			],
 			"body": "this.width = newWidth;"
@@ -96,7 +112,7 @@
 				{
 					"name": "newHeight",
 					"type": "integer",
-					"description": "The width height value"
+					"description": "The height value"
 				}
 			],
 			"body": "this.height = newHeight;"
@@ -110,6 +126,11 @@
 			"returnType": "string",
 			"description": "Returns the market value.",
 			"body": "return this.market;"
+		},
+		"getWidgetType": {
+			"returnType": "string",
+			"description": "Returns the widget type.",
+			"body": "return this.widetType;"
 		}
 	},
 	"events": {

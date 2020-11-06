@@ -1,10 +1,10 @@
 (function() { 
 	let shadowRoot;
-	var doc;
+	let doc;
 
 	let template = document.createElement("template");
 	template.innerHTML = `
-		<div class='tradingview-widget-container__widget'></div>
+		<div id='tradingview-container' class='tradingview-widget-container__widget'></div>
 	`;
 
 	const chartWidget = "https://s3.tradingview.com/tv.js";
@@ -188,33 +188,38 @@
 			async function LoadAndDraw(){
 				try {
 					console.log("TRY");
-					await loadScript(chartWidget);
-					await loadScript(marketOverviewWidget);
+					if(this.widgetType === "chart"){
+						await loadScript(chartWidget);
+					}else{
+						await loadScript(marketOverviewWidget);
+					}
+					
 				} catch (e) {
 					alert(e);
 				} finally {
-					console.log("FINALLY");
-					const container = document.getElementsByClassName("sap-user-defined-tradingViewPanel")[0];
-					const containerId = container.id;
-					if(containerId){
-						new TradingView.widget(
-							{
-							"width": container.clientWidth,
-							"height": container.clientHeight,
-							"symbol": this.market+":"+this.ticker,
-							"interval": "D",
-							"timezone": "Etc/UTC",
-							"theme": "light",
-							"style": "1",
-							"locale": "de_DE",
-							"toolbar_bg": "#f1f3f6",
-							"enable_publishing": false,
-							"allow_symbol_change": true,
-							"container_id" : containerId
-						  }
-						);
-					}else{
-						console.log("Container not available");
+					console.log("FINALLY: " + this.widgetType);
+					if(this.widgetType === "chart"){
+						const container = document.getElementById("tradingview-container");
+						if(container){
+							new TradingView.widget(
+								{
+								"width": container.clientWidth,
+								"height": container.clientHeight,
+								"symbol": this.market+":"+this.ticker,
+								"interval": "D",
+								"timezone": "Etc/UTC",
+								"theme": "light",
+								"style": "1",
+								"locale": "de_DE",
+								"toolbar_bg": "#f1f3f6",
+								"enable_publishing": false,
+								"allow_symbol_change": true,
+								"container_id" : container.id
+							}
+							);
+						}else{
+							console.log("Container not available");
+						}
 					}
 						
 				}
