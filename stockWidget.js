@@ -4,11 +4,14 @@
 
 	let template = document.createElement("template");
 	template.innerHTML = `
-		<div id='tradingview-container' class='tradingview-widget-container__widget'></div>
+		<div class="tradingview-widget-container">
+			<div id=tradingview-container class="tradingview-widget-container__widget"></div>
+		</div>
 	`;
 
 	const chartWidget = "https://s3.tradingview.com/tv.js";
 	const marketOverviewWidget = "https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js";
+	const fundamentalWidget = "https://s3.tradingview.com/external-embedding/embed-widget-financials.js";
 
 	let marketOverviewJson = JSON.stringify({
 		"colorTheme": "light",
@@ -144,6 +147,17 @@
 		  }
 		]
 	  });
+	
+	let fundamentalJson = JSON.stringify({
+		"symbol": "NASDAQ:AAPL",
+		"colorTheme": "light",
+		"isTransparent": false,
+		"largeChartUrl": "",
+		"displayMode": "regular",
+		"width": 480,
+		"height": 830,
+		"locale": "de_DE"
+	  });
 
 	function loadScript(src) {
 		console.log("LOAD");
@@ -175,8 +189,8 @@
 			doc = this;
 			this._props = {};
 			this._widget;
-			this.ticker = "MSFT";
-			this.market = "NASDAQ";
+			this.ticker="MSFT"
+			this.market="NASDAQ"
 		}
 
 		onCustomWidgetBeforeUpdate(changedProperties) {
@@ -199,7 +213,8 @@
 				} finally {
 					console.log("FINALLY: " + this.widgetType);
 					if(this.widgetType === "chart"){
-						const container = document.getElementById("tradingview-container");
+						const container = document.querySelector(".tradingview-widget-container__widget");						
+						//const container = document.getElementById("test");
 						if(container){
 							new TradingView.widget(
 								{

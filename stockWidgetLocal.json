@@ -12,21 +12,21 @@
 		{
 			"kind": "main",
 			"tag": "com-conet-widget-stockwidget",
-			"url": "http://localhost:8888/stockWidget.js",
+			"url": "http://localhost:8888/lennartscholand.github.io/stockWidget.js",
 			"integrity": "",
 			"ignoreIntegrity": true
 		},
 		{
 			"kind": "styling",
 			"tag": "com-conet-widget-stockwidget-styling",
-			"url": "http://localhost:8888/stockWidget_styling.js",
+			"url": "http://localhost:8888/lennartscholand.github.io/stockWidget_styling.js",
 			"integrity": "",
 			"ignoreIntegrity": true
 		},
 		{
 			"kind": "builder",
 			"tag": "com-conet-widget-stockwidget-builder",
-			"url": "http://localhost:8888/stockWidget_builder.js",
+			"url": "http://localhost:8888/lennartscholand.github.io/stockWidget_builder.js",
 			"integrity": "",
 			"ignoreIntegrity": true
 		}
@@ -35,12 +35,12 @@
 		"ticker": {
 			"type": "string",
 			"description": "Ticker Value",
-			"default": ""
+			"default": "MSFT"
 		},
 		"market": {
 			"type": "string",
 			"description": "Market Value",
-			"default": ""
+			"default": "NASDAQ"
 		},
 		"widgetType": {
 			"type": "string",
@@ -130,7 +130,7 @@
 		"getWidgetType": {
 			"returnType": "string",
 			"description": "Returns the widget type.",
-			"body": "return this.widetType;"
+			"body": "return this.widgetType;"
 		}
 	},
 	"events": {

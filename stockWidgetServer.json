@@ -35,12 +35,12 @@
 		"ticker": {
 			"type": "string",
 			"description": "Ticker Value",
-			"default": ""
+			"default": "MSFT"
 		},
 		"market": {
 			"type": "string",
 			"description": "Market Value",
-			"default": ""
+			"default": "NASDAQ"
 		},
 		"widgetType": {
 			"type": "string",
@@ -130,7 +130,7 @@
 		"getWidgetType": {
 			"returnType": "string",
 			"description": "Returns the widget type.",
-			"body": "return this.widetType;"
+			"body": "return this.widgetType;"
 		}
 	},
 	"events": {
